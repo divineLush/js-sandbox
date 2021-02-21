@@ -1,26 +1,36 @@
-// GLOBAL ENVIRONMENT / GLOBAL OBJECT
+// CREATION AND HOISTING
 
-// Execution context was created at the Global level
-// Global Execution context creates Global Object and special variable 'this'
+// What's executed isn't what was writen
+// JS engine isn't physically moving the code and then executing it
+// Hoisting happens because execution context is created in two phases:
 
-// Window
-// Execution Context was created and decided that the value of 'this' is Window
-console.log(this);
-// Window object is a Global Object inside browsers
-console.log(window);
-// true
-// at the Global level 'this' and 'window' are equal
-console.log(window === this);
 
-// Global means not inside a function
+// 1. Creation phase (Global Object, this, Outer Environment)
 
-var a = 'Hello world!';
+// As the parser runs through code and begins to set up what was written for translation
+// it recognises where functions and variables were created.
+// It sets up the memory space for the variables and functions
+// Functions and variables exist in memory
+// The function is entirely placed into memory space (its name and the code inside)
+// JS isn't aware of the final value of the variable
+// So it puts a placeholder - undefined
+// All variables in JS are initially set to undefined
+// It's a bad idea to rely on hoisting as expected value could be undefined
 
-function b () {}
+// 2. Execution phase
 
-// Hello world! ƒ b () {}
-// Variables and functions created outside a function are attached to Global Object
-console.log(window.a, window.b);
-console.log(this.a, this.b);
-// true, true
-console.log(this.a === window.a, this.b === window.b);
+
+// 'Called b!'
+b();
+// undefined
+// a variable is available
+console.log(a);
+// Uncaught ReferenceError: c is not defined
+// console.log(c);
+
+var a = 'Hello world';
+
+function b () {
+    console.log('Called b!');
+}
+
