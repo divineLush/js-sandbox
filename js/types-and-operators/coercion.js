@@ -17,3 +17,9 @@ console.log(1 + 'abc');
 
 // NaN
 console.log(1 - 'abc');
+
+// NaN
+console.log(Number(undefined));
+
+// 0
+console.log(Number(null));
