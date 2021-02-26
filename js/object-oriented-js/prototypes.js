@@ -31,3 +31,18 @@ var jane = {
 jane.__proto__ = person;
 // Jane default
 console.log(jane.getFullName());
+
+
+var obj = {};
+var func = function () {};
+var arr = [];
+
+// Object
+// the very bottom of the prototype chain
+console.log(obj.__proto__);
+
+// function Empty() {}
+console.log(func.__proto__);
+
+// []
+console.log(arr.__proto__);
